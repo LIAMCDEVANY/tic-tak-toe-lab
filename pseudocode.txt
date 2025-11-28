@@ -1,0 +1,60 @@
+/*-------------Pseudocode----------*/
+
+// 1) Define the required variables used to track the state of the game.
+//    - Create a variable to represent the board as an array of 9 positions.
+//    - Create a variable to represent whose turn it is (X or O).
+//    - Create a variable to represent the winner (X, O, tie, or null when game is ongoing).
+
+// 2) Store cached element references.
+//    - Store references to all 9 square elements on the board.
+//    - Store a reference to the message element that displays status text.
+//    - Store a reference to the reset button.
+
+// 3) Upon loading, the game state should be initialized, and a function should be called to render this game state.
+//    - Define an init function.
+//      - Set the board array so all positions are empty (null).
+//      - Set the current turn to X.
+//      - Set the winner to null.
+//      - Call a render function.
+//    - Call init once when the script loads.
+
+// 4) The state of the game should be rendered to the user.
+//    - Define a render function.
+//      - Call a function to render the board.
+//      - Call a function to render the message.
+//    - Define a renderBoard function.
+//      - Loop through each position in the board array.
+//      - For each position, update the matching square’s text to X, O, or empty based on the board value.
+//    - Define a renderMessage function.
+//      - If there is no winner, display whose turn it is.
+//      - If there is a tie, display a tie message.
+//      - If there is a winner, display which player won.
+
+// 5) Define the required constants.
+//    - Create a list of all winning index combinations (rows, columns, diagonals).
+
+// 6) Handle a player clicking a square with a handleClick function.
+//    - Attach a click event listener to each square that calls handleClick.
+//    - In handleClick:
+//      - Determine which square was clicked based on its id or data attribute.
+//      - If there is already a winner, ignore the click.
+//      - If the clicked square is already occupied, ignore the click.
+//      - Otherwise, update the board at that index with the current player’s mark (X or O).
+//      - Check if this move causes a winner by calling a checkForWinner function.
+//      - Check if the game is a tie by calling a checkForTie function.
+//      - If there is no winner yet, switch the turn from X to O or O to X.
+//      - Call render to update the board and message.
+
+//    - Define checkForWinner function.
+//      - Loop through each winning combination.
+//      - For each combination, check the three matching positions in the board.
+//      - If all three are non-empty and equal, set winner to that player.
+//      - If a winning combo is found, stop checking further.
+
+//    - Define checkForTie function.
+//      - If there is already a winner, do nothing.
+//      - If every position on the board is filled and there is no winner, set winner to represent a tie.
+
+// 7) Create Reset functionality.
+//    - Attach a click event listener to the reset button that calls init.
+//    - When init is called, the board is cleared, turn is reset to X, winner is cleared, and the UI is re-rendered.
